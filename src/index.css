@@ -1,3 +1,9 @@
-div {
-	color: blue;
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Josefin Sans", sans-serif;
+}
+body {
+	background-image: url("./assets/images/bg-desktop-light.jpg");
+	background-repeat: no-repeat;
 }
