@@ -7,3 +7,29 @@ body {
 	background-image: url("./assets/images/bg-desktop-light.jpg");
 	background-repeat: no-repeat;
 }
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	padding: 100px 300px;
+}
+/* title section */
+.title-section {
+	text-transform: uppercase;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.title-section h1 {
+	font-weight: 700;
+	font-size: 32px;
+	letter-spacing: 0.625rem;
+}
+/* input section */
+.input-section {
+	background-color: white;
+	width: 100%;
+}
