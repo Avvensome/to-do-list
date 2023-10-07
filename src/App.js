@@ -30,15 +30,17 @@ const CreateTask = function () {
 const Task = function () {
 	return (
 		<li className="task-component">
-			<input
-				className="task-checkbox"
-				type="checkbox"
-				id="test"
-				name="task"
-			/>
-			<label for="id-test" className="task-text">
-				Complete JavaScript course
-			</label>
+			<div>
+				<input
+					className="task-checkbox"
+					type="checkbox"
+					id="test"
+					name="task"
+				/>
+				<label for="id-test" className="task-text">
+					Complete JavaScript course
+				</label>
+			</div>
 		</li>
 	);
 };
