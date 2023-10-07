@@ -5,23 +5,42 @@ function App() {
 				<h1>todo</h1>
 				<img src="/images/icon-moon.svg" alt="moon icon" />
 			</section>
-			<section className="task-section">
+			<section className="create-task-section">
 				<CreateTask />
 			</section>
-			<section className="task-list-section"></section>
+			<ul className="task-list-section">
+				<Task />
+			</ul>
 		</main>
 	);
 }
 const CreateTask = function () {
 	return (
-		<div className="task-container">
+		<div className="create-task-container">
 			<input
-				className="task-input"
+				className="create-task-input"
 				type="text"
 				placeholder="Create a new todo..."
 			/>
-			<div className="task-circle"></div>
+			<div className="create-task-circle"></div>
 		</div>
 	);
 };
+
+const Task = function () {
+	return (
+		<li className="task-component">
+			<input
+				className="task-checkbox"
+				type="checkbox"
+				id="test"
+				name="task"
+			/>
+			<label for="id-test" className="task-text">
+				Complete JavaScript course
+			</label>
+		</li>
+	);
+};
+
 export default App;

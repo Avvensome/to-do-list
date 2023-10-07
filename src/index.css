@@ -8,8 +8,9 @@ input:focus {
 	outline: none;
 }
 body {
-	background-image: url("./assets/images/bg-desktop-light.jpg");
+	background-image: url(./assets/images/bg-desktop-light.jpg);
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 .bg-dark {
 	background-image: url(./assets/images/bg-desktop-dark.jpg);
@@ -33,26 +34,32 @@ main {
 	font-size: 32px;
 	letter-spacing: 10px;
 	text-transform: uppercase;
-	color: white;
+	color: hsl(0, 0%, 98%);
 }
 .title-section img {
 	height: 1.5625rem;
 }
-/* task-section */
-.task-section {
+/* create-task-section */
+
+.create-task-section {
 	padding-top: 1.5625rem;
 	width: 100%;
 }
-.task-container {
+.create-task-container {
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	padding: 15px;
-	background-color: white;
+	background-color: hsl(0, 0%, 98%);
 	width: 100%;
 	border-radius: 0.3125rem;
+	transition: box-shadow 0.5s;
+	box-shadow: 0px 5px 30px -10px hsl(236, 9%, 61%);
 }
-.task-circle {
+.create-task-container:focus-within {
+	box-shadow: 0px 5px 30px -10px hsl(235, 19%, 35%);
+}
+.create-task-circle {
 	order: 1;
 	width: 20px;
 	height: 20px;
@@ -60,14 +67,15 @@ main {
 	border-radius: 50%;
 	margin-right: 15px;
 }
-.task-input {
+.create-task-input {
 	order: 2;
 	width: 100%;
 	border: 0;
 	font-size: 1.125rem;
 	color: hsl(235, 19%, 35%);
+	background-color: hsl(0, 0%, 98%);
 }
-.task-input:focus + .task-circle {
+.create-task-input:focus + .create-task-circle {
 	border-radius: 10px;
 	border: double 1px transparent;
 	background-image: linear-gradient(white, white),
@@ -75,11 +83,77 @@ main {
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 }
-
-input::placeholder {
+.create-task-input:focus input::placeholder {
 	font-size: 1.125rem;
 	color: hsl(236, 9%, 61%);
 }
+/* Task List Section */
+.task-list-section {
+	width: 100%;
+	display: flex;
+	background-color: hsl(0, 0%, 98%);
+	color: hsl(235, 19%, 35%);
+	font-size: 18px;
+}
+
+/* Task Component*/
+.task-component {
+	padding: 10px;
+	display: flex;
+	position: relative;
+}
+.task-checkbox {
+	position: absolute;
+	top: 10;
+	left: 10;
+	z-index: 2;
+	width: 20px;
+	width: 20px;
+}
+/* TaskComponent - checkbox */
+[type="checkbox"] {
+	opacity: 0;
+}
+[type="checkbox"] + .task-text {
+	position: relative;
+	order: 2;
+	padding-left: 1.875rem;
+	cursor: pointer;
+	display: inline-block;
+	color: blue;
+	line-height: 1.5625rem;
+}
+[type="checkbox"] + .task-text::before {
+	content: "";
+	position: absolute;
+	left: -0.5rem;
+	top: 0;
+	width: 1.25rem;
+	height: 1.25rem;
+	border-radius: 50%;
+	outline: 1px solid hsl(236, 9%, 61%);
+}
+[type="checkbox"]:checked + .task-text::before {
+	content: "";
+	position: absolute;
+	left: -0.5rem;
+	top: 0;
+	width: 1.25rem;
+	height: 1.25rem;
+	border-radius: 50%;
+	outline: 0px;
+	background: linear-gradient(15deg, #57ddff, #c058f3);
+}
+[type="checkbox"]:checked + .task-text::after {
+	content: url("/public/images/icon-check.svg");
+	position: absolute;
+	top: -0.0625rem;
+	left: -0.4375rem;
+	width: 0.9375rem;
+	height: 0.9375rem;
+}
+
+/* Media */
 @media screen and (max-width: 375px) {
 	body {
 		background-image: url("./assets/images/bg-mobile-light.jpg");
