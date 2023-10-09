@@ -94,6 +94,7 @@ main {
 	background-color: hsl(0, 0%, 98%);
 	color: hsl(235, 19%, 35%);
 	font-size: 18px;
+	margin-top: 50px;
 }
 
 /* Task Component*/
@@ -116,6 +117,8 @@ main {
 }
 [type="checkbox"] {
 	opacity: 0;
+	margin-left: -0.375rem;
+	margin-top: 0.25rem;
 }
 [type="checkbox"] + .task-text {
 	position: relative;
@@ -147,7 +150,7 @@ main {
 	background: linear-gradient(15deg, #57ddff, #c058f3);
 }
 [type="checkbox"]:checked + .task-text::after {
-	content: url("/public/images/icon-check.svg");
+	content: url(/public/images/icon-check.svg);
 	position: absolute;
 	top: -0.0625rem;
 	left: -0.4375rem;
@@ -163,7 +166,7 @@ main {
 /* Media */
 @media screen and (max-width: 375px) {
 	body {
-		background-image: url("./assets/images/bg-mobile-light.jpg");
+		background-image: url(./assets/images/bg-mobile-light.jpg);
 		background-repeat: no-repeat;
 	}
 	.bg-dark {
