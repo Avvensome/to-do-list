@@ -41,7 +41,7 @@ const CreateTask = function () {
 	);
 };
 
-const Task = function () {
+const Task = function ({ taskText }) {
 	return (
 		<li className="task-component">
 			<div>
@@ -52,9 +52,10 @@ const Task = function () {
 					name="task"
 				/>
 				<label for="id-test" className="task-text">
-					Complete JavaScript course
+					{taskText}
 				</label>
 			</div>
+			<img src="/images/icon-cross.svg" alt="remove task" />
 		</li>
 	);
 };

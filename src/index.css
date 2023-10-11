@@ -7,7 +7,9 @@ textarea:focus,
 input:focus {
 	outline: none;
 }
-
+body {
+	background-color: hsl(236, 33%, 92%);
+}
 main,
 header {
 	display: flex;
@@ -120,7 +122,15 @@ header {
 	display: flex;
 	position: relative;
 	align-items: center;
+	justify-content: space-between;
 	border-bottom: 0.0625rem solid hsl(236, 9%, 61%);
+}
+.task-component img {
+	display: none;
+}
+.task-component:hover img {
+	display: block;
+	cursor: pointer;
 }
 .task-checkbox {
 	cursor: pointer;
@@ -188,11 +198,11 @@ header {
 	justify-content: space-around;
 	padding: 15px 0px;
 	align-items: center;
-	/* justify-content: center; */
 }
 .items-filter {
 	color: hsl(236, 9%, 61%);
 	font-size: 15px;
+	cursor: pointer;
 }
 .filters-btn {
 	display: flex;
@@ -204,6 +214,7 @@ header {
 	color: hsl(236, 9%, 61%);
 	font-size: 14px;
 	font-weight: 700;
+	cursor: pointer;
 }
 .filters-btn button:hover,
 .items-filter:hover {
