@@ -1,6 +1,4 @@
 function App() {
-	// Odseparowanie title section od main
-	// Zmiana w CSS backgground-image z body na header
 	return (
 		<>
 			<header>
