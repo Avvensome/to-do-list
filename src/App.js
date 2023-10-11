@@ -12,11 +12,24 @@ function App() {
 			e.preventDefault();
 			const newTask = [...tasks, inputValue];
 			setTasks(newTask);
-
 			setInputValue("");
 		} else {
 			e.preventDefault();
 		}
+	};
+	const handleRenderTasks = function () {
+		return tasks.map((task, index) => (
+			<Task
+				key={index}
+				taskText={task}
+				handleDeleteTask={handleDeleteTask}
+			/>
+		));
+	};
+	const handleDeleteTask = function () {
+		// const filtredTasks = tasks.filter((i) => i !== item);
+		// handleRenderTasks(filtredTasks);
+		console.log(tasks);
 	};
 	return (
 		<>
@@ -35,9 +48,7 @@ function App() {
 					/>
 				</section>
 				<ul className="task-list-section">
-					{tasks.map((task, index) => (
-						<Task key={index} taskText={task} />
-					))}
+					{handleRenderTasks(tasks)}
 					{tasks.length >= 1 ? <Filters tasks={tasks} /> : ""}
 				</ul>
 				{tasks.length >= 1 ? (

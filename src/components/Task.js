@@ -1,4 +1,4 @@
-export const Task = function ({ taskText }) {
+export const Task = function ({ taskText, handleDeleteTask, key }) {
 	return (
 		<li className="task-component">
 			<div>
@@ -12,7 +12,11 @@ export const Task = function ({ taskText }) {
 					{taskText}
 				</label>
 			</div>
-			<img src="/images/icon-cross.svg" alt="remove task" />
+			<img
+				src="/images/icon-cross.svg"
+				alt="remove task"
+				onClick={() => handleDeleteTask()}
+			/>
 		</li>
 	);
 };
