@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Task } from "./components/Task";
+import { CreateTask } from "./components/CreateTask";
+import { Filters } from "./components/Filters";
 
 function App() {
 	const [inputValue, setInputValue] = useState("");
@@ -50,52 +53,5 @@ function App() {
 		</>
 	);
 }
-const CreateTask = function ({ setInputValue, inputValue, handleAddTask }) {
-	return (
-		<form className="create-task-container" onSubmit={handleAddTask}>
-			<input
-				className="create-task-input"
-				type="text"
-				placeholder="Create a new todo..."
-				onChange={(e) => setInputValue(e.target.value)}
-				value={inputValue}
-			/>
-			<div className="create-task-circle"></div>
-		</form>
-	);
-};
 
-const Task = function ({ taskText }) {
-	return (
-		<li className="task-component">
-			<div>
-				<input
-					className="task-checkbox"
-					type="checkbox"
-					id="test"
-					name="task"
-				/>
-				<label for="id-test" className="task-text">
-					{taskText}
-				</label>
-			</div>
-			<img src="/images/icon-cross.svg" alt="remove task" />
-		</li>
-	);
-};
-
-const Filters = function ({ tasks }) {
-	return (
-		<section className="task-filetr-items">
-			<span className="items-filter">{`${tasks.length} items left`}</span>
-
-			<div className="filters-btn">
-				<button>All</button>
-				<button>Active</button>
-				<button>Completed</button>
-			</div>
-			<span className="items-filter">Clear Completed</span>
-		</section>
-	);
-};
 export default App;
