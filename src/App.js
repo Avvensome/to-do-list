@@ -1,5 +1,20 @@
+import { useState } from "react";
+
 function App() {
-	let tasks = [1];
+	const [inputValue, setInputValue] = useState("");
+	const [tasks, setTasks] = useState([]);
+
+	const handleAddTask = function (e) {
+		if (inputValue.trim() !== "") {
+			e.preventDefault();
+			const newTask = [...tasks, inputValue];
+			setTasks(newTask);
+
+			setInputValue("");
+		} else {
+			e.preventDefault();
+		}
+	};
 	return (
 		<>
 			<header>
@@ -10,10 +25,17 @@ function App() {
 			</header>
 			<main>
 				<section className="create-task-section">
-					<CreateTask />
+					<CreateTask
+						setInputValue={setInputValue}
+						handleAddTask={handleAddTask}
+						inputValue={inputValue}
+					/>
 				</section>
 				<ul className="task-list-section">
-					{tasks.length >= 1 ? <Filters /> : ""}
+					{tasks.map((task, index) => (
+						<Task key={index} taskText={task} />
+					))}
+					{tasks.length >= 1 ? <Filters tasks={tasks} /> : ""}
 				</ul>
 				{tasks.length >= 1 ? (
 					<p className="description-text">
@@ -28,16 +50,18 @@ function App() {
 		</>
 	);
 }
-const CreateTask = function () {
+const CreateTask = function ({ setInputValue, inputValue, handleAddTask }) {
 	return (
-		<div className="create-task-container">
+		<form className="create-task-container" onSubmit={handleAddTask}>
 			<input
 				className="create-task-input"
 				type="text"
 				placeholder="Create a new todo..."
+				onChange={(e) => setInputValue(e.target.value)}
+				value={inputValue}
 			/>
 			<div className="create-task-circle"></div>
-		</div>
+		</form>
 	);
 };
 
@@ -60,10 +84,10 @@ const Task = function ({ taskText }) {
 	);
 };
 
-const Filters = function () {
+const Filters = function ({ tasks }) {
 	return (
 		<section className="task-filetr-items">
-			<span className="items-filter">5 items left</span>
+			<span className="items-filter">{`${tasks.length} items left`}</span>
 
 			<div className="filters-btn">
 				<button>All</button>
