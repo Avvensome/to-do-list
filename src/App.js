@@ -2,18 +2,24 @@ function App() {
 	// Odseparowanie title section od main
 	// Zmiana w CSS backgground-image z body na header
 	return (
-		<main>
-			<section className="title-section">
-				<h1>todo</h1>
-				<img src="/images/icon-moon.svg" alt="moon icon" />
-			</section>
-			<section className="create-task-section">
-				<CreateTask />
-			</section>
-			<ul className="task-list-section">
-				<Task />
-			</ul>
-		</main>
+		<>
+			<header>
+				<section className="title-section">
+					<h1>todo</h1>
+					<img src="/images/icon-moon.svg" alt="moon icon" />
+				</section>
+			</header>
+			<main>
+				<section className="create-task-section">
+					<CreateTask />
+				</section>
+				<ul className="task-list-section">
+					<Task />
+					<Task />
+					<Task />
+				</ul>
+			</main>
+		</>
 	);
 }
 const CreateTask = function () {
