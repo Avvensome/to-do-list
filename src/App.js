@@ -1,4 +1,5 @@
 function App() {
+	let tasks = [1];
 	return (
 		<>
 			<header>
@@ -12,10 +13,17 @@ function App() {
 					<CreateTask />
 				</section>
 				<ul className="task-list-section">
-					<Task />
-					<Task />
-					<Task />
+					{tasks.length >= 1 ? <Filters /> : ""}
 				</ul>
+				{tasks.length >= 1 ? (
+					<p className="description-text">
+						Drag and drop to render list
+					</p>
+				) : (
+					<p className="decsription-text-start">
+						Add something to list
+					</p>
+				)}
 			</main>
 		</>
 	);
@@ -51,4 +59,18 @@ const Task = function () {
 	);
 };
 
+const Filters = function () {
+	return (
+		<section className="task-filetr-items">
+			<span className="items-filter">5 items left</span>
+
+			<div className="filters-btn">
+				<button>All</button>
+				<button>Active</button>
+				<button>Completed</button>
+			</div>
+			<span className="items-filter">Clear Completed</span>
+		</section>
+	);
+};
 export default App;

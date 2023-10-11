@@ -182,7 +182,47 @@ header {
 	color: hsl(236, 9%, 61%);
 	text-decoration: line-through;
 }
-
+/* Filter Section */
+.task-filetr-items {
+	display: flex;
+	justify-content: space-around;
+	padding: 15px 0px;
+	align-items: center;
+	/* justify-content: center; */
+}
+.items-filter {
+	color: hsl(236, 9%, 61%);
+	font-size: 15px;
+}
+.filters-btn {
+	display: flex;
+	gap: 10px;
+}
+.filters-btn button {
+	border: 0;
+	background-color: transparent;
+	color: hsl(236, 9%, 61%);
+	font-size: 14px;
+	font-weight: 700;
+}
+.filters-btn button:hover,
+.items-filter:hover {
+	color: hsl(235, 21%, 11%);
+}
+.filters-btn button:active {
+	color: hsl(220, 98%, 61%);
+}
+/* info-section */
+.description-text {
+	padding-top: 50px;
+	font-size: 18px;
+	color: hsl(234, 11%, 52%);
+}
+.decsription-text-start {
+	padding-top: 100px;
+	font-size: 18px;
+	color: hsl(234, 11%, 52%);
+}
 /* Media */
 @media screen and (max-width: 23.4375rem) {
 	body {
