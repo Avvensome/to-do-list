@@ -1,21 +1,16 @@
-export const Task = function ({ taskText, handleDeleteTask, key }) {
+export const Task = function ({ taskText, handleDelteTask, id }) {
 	return (
 		<li className="task-component">
 			<div>
-				<input
-					className="task-checkbox"
-					type="checkbox"
-					id="test"
-					name="task"
-				/>
-				<label for="id-test" className="task-text">
+				<input className="task-checkbox" type="checkbox" name="task" />
+				<label className="task-text" htmlFor={id}>
 					{taskText}
 				</label>
 			</div>
 			<img
 				src="/images/icon-cross.svg"
 				alt="remove task"
-				onClick={() => handleDeleteTask()}
+				onClick={() => handleDelteTask(id)}
 			/>
 		</li>
 	);

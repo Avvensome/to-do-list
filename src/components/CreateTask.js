@@ -1,10 +1,6 @@
-export const CreateTask = function ({
-	setInputValue,
-	inputValue,
-	handleAddTask,
-}) {
+export const CreateTask = function ({ setInputValue, inputValue, AddTask }) {
 	return (
-		<form className="create-task-container" onSubmit={handleAddTask}>
+		<form className="create-task-container" onSubmit={AddTask}>
 			<input
 				className="create-task-input"
 				type="text"

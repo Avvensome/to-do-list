@@ -8,28 +8,27 @@ function App() {
 	const [tasks, setTasks] = useState([]);
 
 	const handleAddTask = function (e) {
-		if (inputValue.trim() !== "") {
-			e.preventDefault();
-			const newTask = [...tasks, inputValue];
-			setTasks(newTask);
-			setInputValue("");
-		} else {
-			e.preventDefault();
-		}
+		e.preventDefault();
+		if (inputValue.trim() === "") return;
+
+		const newTask = { text: inputValue, id: Date.now() };
+
+		setTasks((prevList) => [...prevList, newTask]);
+		setInputValue("");
+	};
+	const handleDelteTask = function (taskID) {
+		const updatedTaskList = tasks.filter((task) => task.id !== taskID);
+		setTasks(updatedTaskList);
 	};
 	const handleRenderTasks = function () {
 		return tasks.map((task, index) => (
 			<Task
+				taskText={task.text}
+				id={task.id}
 				key={index}
-				taskText={task}
-				handleDeleteTask={handleDeleteTask}
+				handleDelteTask={handleDelteTask}
 			/>
 		));
-	};
-	const handleDeleteTask = function () {
-		// const filtredTasks = tasks.filter((i) => i !== item);
-		// handleRenderTasks(filtredTasks);
-		console.log(tasks);
 	};
 	return (
 		<>
@@ -43,7 +42,7 @@ function App() {
 				<section className="create-task-section">
 					<CreateTask
 						setInputValue={setInputValue}
-						handleAddTask={handleAddTask}
+						AddTask={handleAddTask}
 						inputValue={inputValue}
 					/>
 				</section>
