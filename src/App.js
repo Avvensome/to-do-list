@@ -11,7 +11,11 @@ function App() {
 		e.preventDefault();
 		if (inputValue.trim() === "") return;
 
-		const newTask = { text: inputValue, id: Date.now() };
+		const newTask = {
+			text: inputValue,
+			id: Date.now(),
+			isComplited: false,
+		};
 
 		setTasks((prevList) => [...prevList, newTask]);
 		setInputValue("");
@@ -20,13 +24,24 @@ function App() {
 		const updatedTaskList = tasks.filter((task) => task.id !== taskID);
 		setTasks(updatedTaskList);
 	};
+	const handleToogleTaskCompleted = function (id) {
+		setTasks((prevTasks) =>
+			prevTasks.map((task) =>
+				task.id === id
+					? { ...task, isCompleted: !task.isCompleted }
+					: task
+			)
+		);
+	};
 	const handleRenderTasks = function () {
 		return tasks.map((task, index) => (
 			<Task
 				taskText={task.text}
 				id={task.id}
+				isCompleted={task.isCompleted}
 				key={index}
 				handleDelteTask={handleDelteTask}
+				handleToogleTaskCompleted={handleToogleTaskCompleted}
 			/>
 		));
 	};
