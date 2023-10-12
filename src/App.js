@@ -63,7 +63,11 @@ function App() {
 				</section>
 				<ul className="task-list-section">
 					{handleRenderTasks(tasks)}
-					{tasks.length >= 1 ? <Filters tasks={tasks} /> : ""}
+					{tasks.length >= 1 ? (
+						<Filters tasks={tasks} setTasks={setTasks} />
+					) : (
+						""
+					)}
 				</ul>
 				{tasks.length >= 1 ? (
 					<p className="description-text">
