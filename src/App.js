@@ -6,6 +6,7 @@ import { Filters } from "./components/Filters";
 function App() {
 	const [inputValue, setInputValue] = useState("");
 	const [tasks, setTasks] = useState([]);
+	const [filter, setFilter] = useState("all");
 
 	const handleAddTask = function (e) {
 		e.preventDefault();
@@ -42,6 +43,8 @@ function App() {
 				key={index}
 				handleDelteTask={handleDelteTask}
 				handleToogleTaskCompleted={handleToogleTaskCompleted}
+				filter={filter}
+				setFilter={setFilter}
 			/>
 		));
 	};
@@ -64,7 +67,17 @@ function App() {
 				<ul className="task-list-section">
 					{handleRenderTasks(tasks)}
 					{tasks.length >= 1 ? (
-						<Filters tasks={tasks} setTasks={setTasks} />
+						<Filters
+							tasks={tasks}
+							setTasks={setTasks}
+							filter={filter}
+							setFilter={setFilter}
+							handleAddTask={handleAddTask}
+							handleDelteTask={handleDelteTask}
+							handleToogleTaskCompleted={
+								handleToogleTaskCompleted
+							}
+						/>
 					) : (
 						""
 					)}
